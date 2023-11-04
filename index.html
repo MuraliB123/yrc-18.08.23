@@ -11,14 +11,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
+
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
 .w3-sidebar {width: 120px;background: #ff4d4d;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
 #main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+@media only screen and (max-width: 600px) {
+  #main {
+  margin-left: 0;
+}
+.container {
+  display: block !important;
+}
+.carousel, .content {
+  width: 100% !important;
+}
+}
 footer
 {
 margin-left: 120px
@@ -34,6 +42,88 @@ font-weight: bold;
 .space
 {
 margin-top: 40px
+}
+.container {
+    display: flex;
+}
+.carousel {
+    width: 50%; 
+    overflow: hidden;
+    position: relative;
+}
+.content {
+    width: 50%;
+}
+.content p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+* {box-sizing:border-box}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.mySlides {
+  display: none;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #717171;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 </style>
 <body>
@@ -100,50 +190,50 @@ Youth Red Cross has the following three principles:
 </ul>
 </p>
 
-<!-- Slideshow -->
-  <div class=" w3-display-container w3-wide " width="100%">
-<!--     <div class="w3-display-container mySlides">
-    <img  class=" w3-hide-small " src="images/Home/home7.jpg" width="100%" height="600">
-	  <img  class="w3-hide-large w3-hide-medium" src="images/Home/home7.jpg" width="100%" height="400">
-    </div> -->
-    <div class="w3-display-container mySlides">
-      <img  class=" w3-hide-small " src="images/Home/award/Governor.jpg" width="100%" height="600">
-	  <img  class="w3-hide-large w3-hide-medium" src="images/Home/award/Governor.jpg" width="100%" height="400">
-	    <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">Prof.Dr.S.Thanigaiarasu, YRC Coordinator, Anna University recieved the award of appreciation from the Hon'ble Governor of Tamilnadu Thiru.Banwarilal Purohit on 27.09.2019 for having organized highest Blood Donation Camps.</div>
+
+<div class="container">
+  <div class="carousel">
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="images/Home/award/Governor.jpg" style="width:100%">  
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="images/Home/award/VC2.jpg" style="width:100%"> 
+      </div>
+      <div class="mySlides fade">
+         <div class="numbertext">3/3</div>
+         <img src="images/Home/award/Registrar.jpg" style="width:100%">
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <div class="w3-display-container mySlides">
-      <img class=" w3-hide-small "  src="images/Home/award/VC2.jpg" width="100%" height="600">
-	  <img  class="w3-hide-large w3-hide-medium" src="images/Home/award/VC2.jpg" width="100%" height="400">
-<!-- 	   <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">Independance Day Celebration</div> -->
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
     </div>
-    <div class="w3-display-container mySlides">
-      <img class=" w3-hide-small "  src="images/Home/award/Registrar.jpg" width="100%" height="600">
-	  <img  class="w3-hide-large w3-hide-medium" src="images/Home/award/Registrar.jpg" width="100%" height="400">
-<!-- 	   <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black " >Fire Safety Session</div> -->
-    </div>
-<!-- 	<div class="w3-display-container mySlides">
-      <img class=" w3-hide-small "  src="images/Home/home5.jpg" width="100%" height="600">
-	  <img  class="w3-hide-large w3-hide-medium" src="images/Home/home5.jpg" width="100%" height="400">
-	   <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">Personality Development Activities</div>
-    </div>
- -->  </div>
-  <!-- About Section -->
+</div>
+<div class="content">
+   <p>
+    <ul>
+    <li>The Red Cross Society is a worldwide, well known, universally accepted, admired and internationally identified humanitarian service organisation.</li> <br>
+    <li>It is the biggest, independent non-religious, non-political, non-sectarian and voluntary relief organisation treating people equally all over the world 
+    without any discrimination as to their nationality race and religious beliefs. It was established in 1863 in Geneva, Switzerland.</li> <br>
+    <li> The Father of Red Cross movement and recipient of noble award for peace in 1901 was “Jean Henry Dunant”.
+    </li><br>
+    <li>Prof.Dr.S.Thanigaiarasu, YRC Coordinator, Anna University recieved the award of appreciation from the Hon'ble Governor of Tamilnadu Thiru.Banwarilal Purohit on 27.09.2019 for having organized highest Blood Donation Camps</li>
+  </ul>
+</div>
+</div>
+
+  
+ 
   <div class="w3-content w3-justify w3-text-grey" id="about">
-  
-  
-  
-  <!-- Contents-->
     <h2><b>Days of Yore</b></h2>
     <hr style="width:200px" class="w3-opacity">
-    <p>The Red Cross Society is a worldwide, well known, universally accepted, admired and internationally identified humanitarian service organisation. 
- It is the biggest, independent non-religious, non-political, non-sectarian and voluntary relief organisation treating people equally all over the world 
-without any discrimination as to their nationality race and religious beliefs. It was established in 1863 in Geneva, Switzerland.
-The Father of Red Cross movement and recipient of noble award for peace in 1901 was “Jean Henry Dunant”, who was a successful businessman.
-While going on a business mission, Dunant came on 24th June 1859 to Castiglione. It was on the same day, the battle of Solferino was fought nearby between French and Austrian armies.
-Dunant was horrified and moved by the sight and plight of the wounded soldiers. On witnessing the pathetic scene he forgot his business and started relief 
-operations to all the wounded soldiers with the help of people in nearby villages. In 1862 Dunant wrote a book 
-<i class="w3-serif">“A memory of Solferino”</i> which paved the way for the first Geneva Conference in 26th October 1863. The Geneva Society for Public Welfare considered Dunant’s proposals which were mentioned in his book and convened a multinational conference for implementing them.
-</p>
 <P>The two proposals are:
 <ul class="w3-ul">
   <li> Formation of trained medical relief team in every country in peace time to be employed in the relief work for wounded soldiers in the battle field.</li>
@@ -209,20 +299,17 @@ those attending educational institution were embodied in one of the General Coun
 </ul>
 </p>  
     </div> 
-<!-- End About Section -->
-  
-<!-- END PAGE CONTENT -->
+
 </div>
- <footer class="w3-container w3-grey w3-text-white w3-small w3-hide-small">  
+ <footer class="w3-container w3-grey w3-text-black w3-small w3-hide-small">  
     <div class="w3-row-padding">
       <div>
         <h3>CONTACT</h3>
     <hr style="width:100px" class="w3-opacity">
     <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>Location: YRC Cell, Anna University, Chennai-600025</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Intercom: 8493 </p>
-     <!--  <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: yrccoordinator@annauniv.edu </p> -->
-    </div><br>	
+      <p><i class="fa fa-map-marker fa-fw w3-text-black w3-xxlarge w3-margin-right"></i>Location: YRC Cell, Anna University, Chennai-600025</p>
+      <p><i class="fa fa-phone fa-fw w3-text-black w3-xxlarge w3-margin-right"></i> Intercom: 8493 </p>
+       </div><br>	
       </div>
     </div>
   </footer>
@@ -240,11 +327,10 @@ those attending educational institution were embodied in one of the General Coun
     </div>
   </div>
   
- <div class="w3-grey w3-center w3-text-white">Design and Maintained by  <!--<a href="YRC_Web_Team.html" class="w3-hover-opacity">-->YRC Web Team</a></div>
+ <div class="w3-grey w3-center w3-text-black">Design and Maintained by  <!--<a href="YRC_Web_Team.html" class="w3-hover-opacity">-->YRC Web Team</a></div>
 
  
 <script type="text/javascript">
-//Time
 var d=new Date();
 var weekday=new Array(12);
 weekday[0]="Jan";
@@ -266,7 +352,6 @@ var today=new Date();
 var h=today.getHours();
 var m=today.getMinutes();
 var s=today.getSeconds();
-// add a zero in front of numbers<10
 m=checkTime(m);
 s=checkTime(s);
 document.getElementById('txt').innerHTML=d.getDate() +" "+ weekday[d.getMonth()] + " "+ d.getUTCFullYear()+", "+h+":"+m+":"+s;
@@ -282,22 +367,33 @@ if (i<10)
 return i;
 }
 
-//slide show
-var myIndex = 0;
-carousel();
+let slideIndex = 1;
+showSlides(slideIndex);
 
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 7000); // Change image every 2 seconds
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+} 
 </script>
 
 </body>
